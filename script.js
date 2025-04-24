@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Por favor ingresa un número de tarjeta válido (13-16 dígitos)');
             return;
         }
-
         
         // Validar fecha de vencimiento
         const expiry = document.getElementById('expiry').value;
@@ -138,62 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = this.value.replace(/\D/g, '');
         value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
         this.value = value.substring(0, 19);
- // Detección del tipo de tarjeta
-    const cardNumberInput = document.getElementById('card-number');
-    const visaIcon = document.getElementById('visa-icon');
-    const mastercardIcon = document.getElementById('mastercard-icon');
-    const amexIcon = document.getElementById('amex-icon');
-    const genericCardIcon = document.getElementById('generic-card');
-
-    cardNumberInput.addEventListener('input', function(e) {
-        // Formatear número de tarjeta
-        let value = this.value.replace(/\D/g, '');
-        value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
-        this.value = value.substring(0, 19);
-        
-        // Determinar el tipo de tarjeta
-        const cardType = detectCardType(value);
-        updateCardIcons(cardType);
-    });
-
-    function detectCardType(cardNumber) {
-        // Visa: empieza con 4
-        if (/^4/.test(cardNumber)) {
-            return 'visa';
-        }
-        // Mastercard: empieza con 51-55 o 2221-2720
-        else if (/^5[1-5]/.test(cardNumber) || /^2[2-7]/.test(cardNumber)) {
-            return 'mastercard';
-        }
-        // American Express: empieza con 34 o 37
-        else if (/^3[47]/.test(cardNumber)) {
-            return 'amex';
-        }
-        return 'generic';
-    }
-
-    function updateCardIcons(cardType) {
-        // Ocultar todos los iconos primero
-        visaIcon.style.display = 'none';
-        mastercardIcon.style.display = 'none';
-        amexIcon.style.display = 'none';
-        genericCardIcon.style.display = 'none';
-
-        // Mostrar solo el icono correspondiente
-        switch(cardType) {
-            case 'visa':
-                visaIcon.style.display = 'inline-block';
-                break;
-            case 'mastercard':
-                mastercardIcon.style.display = 'inline-block';
-                break;
-            case 'amex':
-                amexIcon.style.display = 'inline-block';
-                break;
-            default:
-                genericCardIcon.style.display = 'inline-block';
-        }
-    }
     });
 
     // Formatear fecha de vencimiento
@@ -218,4 +161,43 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Inicio de sesión simulado. En una implementación real, esto enviaría los datos al servidor.');
         });
     }
+
+    // Toggle entre precios mensuales y anuales
+    const monthlyBtn = document.getElementById('monthly-btn');
+    const annualBtn = document.getElementById('annual-btn');
+    const monthlyPrices = document.querySelectorAll('.monthly-price');
+    const annualPrices = document.querySelectorAll('.annual-price');
+
+    // Precios anuales con 5% de descuento
+    const annualPricesData = {
+        basic: 113.86,   // 9.99 * 12 * 0.95
+        standard: 227.91, // 19.99 * 12 * 0.95
+        premium: 341.86   // 29.99 * 12 * 0.95
+    };
+
+    monthlyBtn.addEventListener('click', function() {
+        monthlyBtn.classList.add('active');
+        annualBtn.classList.remove('active');
+        
+        monthlyPrices.forEach(price => {
+            price.style.display = 'block';
+        });
+        
+        annualPrices.forEach(price => {
+            price.style.display = 'none';
+        });
+    });
+
+    annualBtn.addEventListener('click', function() {
+        annualBtn.classList.add('active');
+        monthlyBtn.classList.remove('active');
+        
+        monthlyPrices.forEach(price => {
+            price.style.display = 'none';
+        });
+        
+        annualPrices.forEach(price => {
+            price.style.display = 'block';
+        });
+    });
 });
