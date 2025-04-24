@@ -771,7 +771,6 @@ footer {
     .plan {
         padding: 1rem;
     }
-}
 /* Añadir estas reglas al final del archivo CSS */
 
 /* Transiciones mejoradas */
@@ -805,4 +804,5 @@ footer {
 
 .toggle-btn {
     transition: all 0.3s ease;
+}
 }
