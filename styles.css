@@ -774,20 +774,35 @@ footer {
 }
 /* Añadir estas reglas al final del archivo CSS */
 
-/* Transición para precios */
+/* Transiciones mejoradas */
 .price {
     transition: opacity 0.3s ease, transform 0.3s ease;
     opacity: 1;
     transform: translateY(0);
-}
-
-.monthly-price, .annual-price {
-    position: relative;
+    margin: 1rem 0;
+    min-height: 60px;
     display: block;
 }
 
-/* Asegurar que los precios tengan el mismo espacio */
-.plan h3 + .price {
-    margin: 1rem 0;
-    min-height: 60px; /* Espacio reservado para evitar saltos */
+.features li {
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Asegurar que el contenedor de planes mantenga su tamaño */
+.plan {
+    min-height: 380px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al cambiar entre mensual/anual */
+.billing-toggle {
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
+.toggle-btn {
+    transition: all 0.3s ease;
 }
