@@ -162,11 +162,77 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-   // Toggle entre precios mensuales y anuales
+ // Toggle entre precios mensuales y anuales
 const monthlyBtn = document.getElementById('monthly-btn');
 const annualBtn = document.getElementById('annual-btn');
 const monthlyPrices = document.querySelectorAll('.monthly-price');
 const annualPrices = document.querySelectorAll('.annual-price');
+const planFeatures = document.querySelectorAll('.features li');
+
+// Precios y características anuales
+const annualPlansData = {
+    basic: {
+        price: 113.86,
+        features: [
+            "Acceso a funciones esenciales",
+            "Soporte básico",
+            "60 consultas/año (5/mes)"
+        ]
+    },
+    standard: {
+        price: 227.91,
+        features: [
+            "Funciones avanzadas",
+            "Soporte prioritario",
+            "240 consultas/año (20/mes)"
+        ]
+    },
+    premium: {
+        price: 341.86,
+        features: [
+            "Acceso completo",
+            "Soporte 24/7",
+            "Consultas ilimitadas"
+        ]
+    }
+};
+
+// Función para actualizar características anuales
+function updateAnnualFeatures() {
+    planFeatures.forEach((feature, index) => {
+        const planContainer = feature.closest('.plan');
+        const planId = planContainer.querySelector('.plan-radio').value;
+        
+        if (annualBtn.classList.contains('active')) {
+            feature.textContent = annualPlansData[planId].features[index];
+        } else {
+            // Restaurar características mensuales
+            switch(planId) {
+                case 'basic':
+                    feature.textContent = [
+                        "Acceso a funciones esenciales",
+                        "Soporte básico",
+                        "5 consultas/mes"
+                    ][index];
+                    break;
+                case 'standard':
+                    feature.textContent = [
+                        "Funciones avanzadas",
+                        "Soporte prioritario",
+                        "20 consultas/mes"
+                    ][index];
+                    break;
+                case 'premium':
+                    feature.textContent = [
+                        "Acceso completo",
+                        "Soporte 24/7",
+                        "Consultas ilimitadas"
+                    ][index];
+                    break;
+            }
+        }
+    });
+}
 
 // Función para animar la transición de precios
 function togglePrices(showAnnual) {
@@ -189,6 +255,7 @@ function togglePrices(showAnnual) {
                     price.style.transform = 'translateY(0)';
                 }, 10);
             });
+            updateAnnualFeatures(); // Actualizar características
         }, 300);
     } else {
         // Ocultar anuales con animación
@@ -209,18 +276,26 @@ function togglePrices(showAnnual) {
                     price.style.transform = 'translateY(0)';
                 }, 10);
             });
+            updateAnnualFeatures(); // Restaurar características mensuales
         }, 300);
     }
 }
 
 monthlyBtn.addEventListener('click', function() {
+    if (monthlyBtn.classList.contains('active')) return;
+    
     monthlyBtn.classList.add('active');
     annualBtn.classList.remove('active');
     togglePrices(false);
 });
 
 annualBtn.addEventListener('click', function() {
+    if (annualBtn.classList.contains('active')) return;
+    
     annualBtn.classList.add('active');
     monthlyBtn.classList.remove('active');
     togglePrices(true);
 });
+
+// Inicializar
+updateAnnualFeatures();
