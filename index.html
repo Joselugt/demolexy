@@ -19,6 +19,11 @@
         <div class="light-effect-3"></div>
     </div>
 
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/50223142717" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header class="glass glass-dark">
         <div class="logo">
             <img src="logo.png" alt="Tu Aliado Legal" class="logo-img">
@@ -43,12 +48,19 @@
             <h1>Nuestros Planes</h1>
             <p>Selecciona el plan que mejor se adapte a tus necesidades</p>
             
+            <!-- Selector de periodicidad -->
+            <div class="billing-toggle">
+                <button id="monthly-btn" class="toggle-btn active">Mensual</button>
+                <button id="annual-btn" class="toggle-btn">Anual (5% de descuento)</button>
+            </div>
+            
             <div class="pricing-plans">
                 <div class="plan-option">
                     <input type="radio" id="basic-plan" name="plan" value="basic" class="plan-radio">
                     <label for="basic-plan" class="plan glass glass-light">
                         <h3>Plan Básico</h3>
-                        <p class="price">$9.99<span>/mes</span></p>
+                        <p class="price monthly-price">$9.99<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$113.86<span>/año</span></p>
                         <div class="plan-details">
                             <ul class="features">
                                 <li><i class="fas fa-check"></i> Acceso a funciones esenciales</li>
@@ -63,7 +75,8 @@
                     <input type="radio" id="standard-plan" name="plan" value="standard" class="plan-radio">
                     <label for="standard-plan" class="plan glass">
                         <h3>Plan Estándar</h3>
-                        <p class="price">$19.99<span>/mes</span></p>
+                        <p class="price monthly-price">$19.99<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$227.91<span>/año</span></p>
                         <div class="plan-details">
                             <ul class="features">
                                 <li><i class="fas fa-check"></i> Funciones avanzadas</li>
@@ -78,7 +91,8 @@
                     <input type="radio" id="premium-plan" name="plan" value="premium" class="plan-radio">
                     <label for="premium-plan" class="plan glass glass-light">
                         <h3>Plan Premium</h3>
-                        <p class="price">$29.99<span>/mes</span></p>
+                        <p class="price monthly-price">$29.99<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$341.86<span>/año</span></p>
                         <div class="plan-details">
                             <ul class="features">
                                 <li><i class="fas fa-check"></i> Acceso completo</li>
@@ -248,10 +262,10 @@
             </div>
             
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61571890930883" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/lexibot_gt/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@lexibot_gt" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://x.com/Lexibot_gt" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/1703teleguia/?locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/teleguia.gt/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@teleguia_" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@teleguiadirectoriotelefoni5983" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
             
             <div class="copyright">
