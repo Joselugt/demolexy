@@ -44,67 +44,67 @@
             <a href="#" class="btn">PRUEBA GRATIS</a>
         </div>
 
-        <div class="main-text glass glass-dark" id="pricing-section">
-            <h1>Nuestros Planes</h1>
-            <p>Selecciona el plan que mejor se adapte a tus necesidades</p>
-            
-            <!-- Selector de periodicidad -->
-            <div class="billing-toggle">
-                <button id="monthly-btn" class="toggle-btn active">Mensual</button>
-                <button id="annual-btn" class="toggle-btn">Anual (5% de descuento)</button>
-            </div>
-            
-            <div class="pricing-plans">
-                <div class="plan-option">
-                    <input type="radio" id="basic-plan" name="plan" value="basic" class="plan-radio">
-                    <label for="basic-plan" class="plan glass glass-light">
-                        <h3>Plan Básico</h3>
-                        <p class="price monthly-price">$9.99<span>/mes</span></p>
-                        <p class="price annual-price" style="display: none;">$113.86<span>/año</span></p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Acceso a funciones esenciales</li>
-                                <li><i class="fas fa-check"></i> Soporte básico</li>
-                                <li><i class="fas fa-check"></i> 5 consultas/mes</li>
-                            </ul>
-                        </div>
-                    </label>
+      <div class="main-text glass glass-dark" id="pricing-section">
+    <h1>Nuestros Planes</h1>
+    <p>Selecciona el plan que mejor se adapte a tus necesidades</p>
+    
+    <!-- Selector de periodicidad -->
+    <div class="billing-toggle">
+        <button id="monthly-btn" class="toggle-btn active">Mensual</button>
+        <button id="annual-btn" class="toggle-btn">Anual (5% de descuento)</button>
+    </div>
+    
+    <div class="pricing-plans">
+        <div class="plan-option">
+            <input type="radio" id="basic-plan" name="plan" value="basic" class="plan-radio">
+            <label for="basic-plan" class="plan glass glass-light">
+                <h3>Plan Básico</h3>
+                <p class="price monthly-price">$9.99<span>/mes</span></p>
+                <p class="price annual-price" style="display: none;">$113.86<span>/año</span></p>
+                <div class="plan-details">
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Acceso a funciones esenciales</li>
+                        <li><i class="fas fa-check"></i> Soporte básico</li>
+                        <li><i class="fas fa-check"></i> <span class="feature-text">5 consultas/mes</span></li>
+                    </ul>
                 </div>
+            </label>
+        </div>
 
-                <div class="plan-option">
-                    <input type="radio" id="standard-plan" name="plan" value="standard" class="plan-radio">
-                    <label for="standard-plan" class="plan glass">
-                        <h3>Plan Estándar</h3>
-                        <p class="price monthly-price">$19.99<span>/mes</span></p>
-                        <p class="price annual-price" style="display: none;">$227.91<span>/año</span></p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Funciones avanzadas</li>
-                                <li><i class="fas fa-check"></i> Soporte prioritario</li>
-                                <li><i class="fas fa-check"></i> 20 consultas/mes</li>
-                            </ul>
-                        </div>
-                    </label>
+        <div class="plan-option">
+            <input type="radio" id="standard-plan" name="plan" value="standard" class="plan-radio">
+            <label for="standard-plan" class="plan glass">
+                <h3>Plan Estándar</h3>
+                <p class="price monthly-price">$19.99<span>/mes</span></p>
+                <p class="price annual-price" style="display: none;">$227.91<span>/año</span></p>
+                <div class="plan-details">
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Funciones avanzadas</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                        <li><i class="fas fa-check"></i> <span class="feature-text">20 consultas/mes</span></li>
+                    </ul>
                 </div>
+            </label>
+        </div>
 
-                <div class="plan-option">
-                    <input type="radio" id="premium-plan" name="plan" value="premium" class="plan-radio">
-                    <label for="premium-plan" class="plan glass glass-light">
-                        <h3>Plan Premium</h3>
-                        <p class="price monthly-price">$29.99<span>/mes</span></p>
-                        <p class="price annual-price" style="display: none;">$341.86<span>/año</span></p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Acceso completo</li>
-                                <li><i class="fas fa-check"></i> Soporte 24/7</li>
-                                <li><i class="fas fa-check"></i> Consultas ilimitadas</li>
-                            </ul>
-                        </div>
-                    </label>
+        <div class="plan-option">
+            <input type="radio" id="premium-plan" name="plan" value="premium" class="plan-radio">
+            <label for="premium-plan" class="plan glass glass-light">
+                <h3>Plan Premium</h3>
+                <p class="price monthly-price">$29.99<span>/mes</span></p>
+                <p class="price annual-price" style="display: none;">$341.86<span>/año</span></p>
+                <div class="plan-details">
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Acceso completo</li>
+                        <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                        <li><i class="fas fa-check"></i> <span class="feature-text">Consultas ilimitadas</span></li>
+                    </ul>
                 </div>
-            </div>
+            </label>
+        </div>
+    </div>
 
-            <button id="select-plan-btn" class="btn">Seleccionar Plan</button>
+    <button id="select-plan-btn" class="btn">Seleccionar Plan</button>
 
             <!-- Formulario de pago (oculto inicialmente) -->
             <div id="payment-form" class="payment-form glass" style="display: none;">
