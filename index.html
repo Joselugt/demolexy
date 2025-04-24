@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="fixed-background">
-        <div class="background-overlay"></div>
+    <div class="background-container">
+        <div class="animated-background"></div>
+        <img src="1DA.jpg" class="background-image" alt="Fondo">
     </div>
 
     <div class="light-effects-container">
@@ -35,35 +36,197 @@
         <div class="main-text glass glass-dark" id="home-section" style="display: none;">
             <h1>Tu aliado legal en la era digital</h1>
             <p>Descubre todo lo que puedes hacer con la única IA en Guatemala diseñada para profesionales y estudiantes del derecho</p>
-            <a href="https://tualiadolegal.com/prueba-gratis" class="btn" target="_blank">PRUEBA GRATIS</a>
+            <a href="#" class="btn">PRUEBA GRATIS</a>
         </div>
 
         <div class="main-text glass glass-dark" id="pricing-section">
             <h1>Nuestros Planes</h1>
             <p>Selecciona el plan que mejor se adapte a tus necesidades</p>
             
-            <div class="plan-toggle-container">
-                <button class="plan-toggle active" id="monthly-toggle">Mensual</button>
-                <button class="plan-toggle" id="annual-toggle">Anual (20% descuento)</button>
-            </div>
-            
-            <div class="pricing-plans monthly-plans">
-                <!-- Planes mensuales aquí -->
-            </div>
-            
-            <div class="pricing-plans annual-plans" style="display: none;">
-                <!-- Planes anuales aquí -->
+            <div class="pricing-plans">
+                <div class="plan-option">
+                    <input type="radio" id="basic-plan" name="plan" value="basic" class="plan-radio">
+                    <label for="basic-plan" class="plan glass glass-light">
+                        <h3>Plan Básico</h3>
+                        <p class="price">$9.99<span>/mes</span></p>
+                        <div class="plan-details">
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Acceso a funciones esenciales</li>
+                                <li><i class="fas fa-check"></i> Soporte básico</li>
+                                <li><i class="fas fa-check"></i> 5 consultas/mes</li>
+                            </ul>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="plan-option">
+                    <input type="radio" id="standard-plan" name="plan" value="standard" class="plan-radio">
+                    <label for="standard-plan" class="plan glass">
+                        <h3>Plan Estándar</h3>
+                        <p class="price">$19.99<span>/mes</span></p>
+                        <div class="plan-details">
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Funciones avanzadas</li>
+                                <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                                <li><i class="fas fa-check"></i> 20 consultas/mes</li>
+                            </ul>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="plan-option">
+                    <input type="radio" id="premium-plan" name="plan" value="premium" class="plan-radio">
+                    <label for="premium-plan" class="plan glass glass-light">
+                        <h3>Plan Premium</h3>
+                        <p class="price">$29.99<span>/mes</span></p>
+                        <div class="plan-details">
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Acceso completo</li>
+                                <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                                <li><i class="fas fa-check"></i> Consultas ilimitadas</li>
+                            </ul>
+                        </div>
+                    </label>
+                </div>
             </div>
 
             <button id="select-plan-btn" class="btn">Seleccionar Plan</button>
 
+            <!-- Formulario de pago (oculto inicialmente) -->
             <div id="payment-form" class="payment-form glass" style="display: none;">
-                <!-- Formulario de pago aquí -->
+                <h2><i class="fas fa-credit-card"></i> Información de Pago</h2>
+                <form id="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name"><i class="fas fa-user"></i> Nombre</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name"><i class="fas fa-user"></i> Apellido</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Teléfono</label>
+                        <input type="tel" id="phone" pattern="[0-9]*" inputmode="numeric" required>
+                    </div>
+
+                    <div class="form-group">
+    <label for="country"><i class="fas fa-globe"></i> País</label>
+    <select id="country" required>
+        <option value="">Seleccionar...</option>
+        
+        <!-- América del Norte -->
+        <optgroup label="América del Norte">
+            <option value="US">Estados Unidos</option>
+            <option value="CA">Canadá</option>
+            <option value="MX">México</option>
+        </optgroup>
+        
+        <!-- América Central -->
+        <optgroup label="América Central">
+            <option value="GT">Guatemala</option>
+            <option value="BZ">Belice</option>
+            <option value="SV">El Salvador</option>
+            <option value="HN">Honduras</option>
+            <option value="NI">Nicaragua</option>
+            <option value="CR">Costa Rica</option>
+            <option value="PA">Panamá</option>
+        </optgroup>
+        
+        <!-- Caribe -->
+        <optgroup label="Caribe">
+            <option value="CU">Cuba</option>
+            <option value="DO">República Dominicana</option>
+            <option value="HT">Haití</option>
+            <option value="JM">Jamaica</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="BS">Bahamas</option>
+            <option value="BB">Barbados</option>
+            <option value="GD">Granada</option>
+            <option value="DM">Dominica</option>
+            <option value="LC">Santa Lucía</option>
+            <option value="VC">San Vicente y las Granadinas</option>
+            <option value="AG">Antigua y Barbuda</option>
+            <option value="KN">San Cristóbal y Nieves</option>
+            <option value="TT">Trinidad y Tobago</option>
+        </optgroup>
+        
+        <!-- América del Sur -->
+        <optgroup label="América del Sur">
+            <option value="AR">Argentina</option>
+            <option value="BO">Bolivia</option>
+            <option value="BR">Brasil</option>
+            <option value="CL">Chile</option>
+            <option value="CO">Colombia</option>
+            <option value="EC">Ecuador</option>
+            <option value="GY">Guyana</option>
+            <option value="PY">Paraguay</option>
+            <option value="PE">Perú</option>
+            <option value="SR">Surinam</option>
+            <option value="UY">Uruguay</option>
+            <option value="VE">Venezuela</option>
+        </optgroup>
+    </select>
+</div>
+
+                    <div class="form-group">
+                        <label for="card-name"><i class="fas fa-credit-card"></i> Nombre en la Tarjeta</label>
+                        <input type="text" id="card-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-number"><i class="fas fa-credit-card"></i> Número de Tarjeta</label>
+                        <input type="text" id="card-number" pattern="[0-9]{13,16}" required placeholder="1234 5678 9012 3456">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry"><i class="fas fa-calendar-alt"></i> Fecha de Vencimiento</label>
+                            <input type="text" id="expiry" placeholder="MM/AA" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv"><i class="fas fa-lock"></i> Código de Seguridad</label>
+                            <input type="text" id="cvv" pattern="[0-9]{3,4}" required placeholder="123">
+                        </div>
+                    </div>
+
+                    <!-- CAPTCHA movido aquí, antes del botón de confirmación -->
+                    <div class="captcha-container">
+                        <div class="fake-captcha">
+                            <div class="captcha-image">
+                                <div class="captcha-text">CAPTCHA</div>
+                                <div class="captcha-checkbox">
+                                    <input type="checkbox" id="captcha-check" style="display: none;">
+                                    <div class="checkbox"></div>
+                                    <span>No soy un robot</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn confirm-btn">
+                        <span class="btn-reflect"></span>
+                        <i class="fas fa-shopping-cart"></i> Confirmar Compra
+                    </button>
+                </form>
             </div>
         </div>
 
         <div class="main-text glass glass-dark" id="login-section" style="display: none;">
-            <!-- Formulario de login aquí -->
+            <h1>Iniciar Sesión</h1>
+            <form id="login-form" class="login-form">
+                <input type="email" placeholder="Correo Electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn">Ingresar</button>
+            </form>
+            <p style="margin-top: 1rem;">¿No tienes una cuenta? <a href="#" id="register-link" style="color: lightblue;">Regístrate aquí</a></p>
         </div>
     </main>
 
@@ -85,10 +248,10 @@
             </div>
             
             <div class="social-links">
-                <a href="https://www.facebook.com/people/LexiBot/61571890930883/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/lexibot_gt/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@lexibot_gt" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://x.com/Lexibot_gt" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/1703teleguia/?locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/teleguia.gt/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@teleguia_" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@teleguiadirectoriotelefoni5983" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
             
             <div class="copyright">
