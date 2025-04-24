@@ -162,42 +162,65 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Toggle entre precios mensuales y anuales
-    const monthlyBtn = document.getElementById('monthly-btn');
-    const annualBtn = document.getElementById('annual-btn');
-    const monthlyPrices = document.querySelectorAll('.monthly-price');
-    const annualPrices = document.querySelectorAll('.annual-price');
+   // Toggle entre precios mensuales y anuales
+const monthlyBtn = document.getElementById('monthly-btn');
+const annualBtn = document.getElementById('annual-btn');
+const monthlyPrices = document.querySelectorAll('.monthly-price');
+const annualPrices = document.querySelectorAll('.annual-price');
 
-    // Precios anuales con 5% de descuento
-    const annualPricesData = {
-        basic: 113.86,   // 9.99 * 12 * 0.95
-        standard: 227.91, // 19.99 * 12 * 0.95
-        premium: 341.86   // 29.99 * 12 * 0.95
-    };
-
-    monthlyBtn.addEventListener('click', function() {
-        monthlyBtn.classList.add('active');
-        annualBtn.classList.remove('active');
-        
+// Función para animar la transición de precios
+function togglePrices(showAnnual) {
+    if (showAnnual) {
+        // Ocultar mensuales con animación
         monthlyPrices.forEach(price => {
-            price.style.display = 'block';
+            price.style.opacity = '0';
+            price.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                price.style.display = 'none';
+            }, 300);
         });
         
+        // Mostrar anuales con animación
+        setTimeout(() => {
+            annualPrices.forEach(price => {
+                price.style.display = 'block';
+                setTimeout(() => {
+                    price.style.opacity = '1';
+                    price.style.transform = 'translateY(0)';
+                }, 10);
+            });
+        }, 300);
+    } else {
+        // Ocultar anuales con animación
         annualPrices.forEach(price => {
-            price.style.display = 'none';
+            price.style.opacity = '0';
+            price.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                price.style.display = 'none';
+            }, 300);
         });
-    });
+        
+        // Mostrar mensuales con animación
+        setTimeout(() => {
+            monthlyPrices.forEach(price => {
+                price.style.display = 'block';
+                setTimeout(() => {
+                    price.style.opacity = '1';
+                    price.style.transform = 'translateY(0)';
+                }, 10);
+            });
+        }, 300);
+    }
+}
 
-    annualBtn.addEventListener('click', function() {
-        annualBtn.classList.add('active');
-        monthlyBtn.classList.remove('active');
-        
-        monthlyPrices.forEach(price => {
-            price.style.display = 'none';
-        });
-        
-        annualPrices.forEach(price => {
-            price.style.display = 'block';
-        });
-    });
+monthlyBtn.addEventListener('click', function() {
+    monthlyBtn.classList.add('active');
+    annualBtn.classList.remove('active');
+    togglePrices(false);
+});
+
+annualBtn.addEventListener('click', function() {
+    annualBtn.classList.add('active');
+    monthlyBtn.classList.remove('active');
+    togglePrices(true);
 });
