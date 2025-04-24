@@ -772,3 +772,22 @@ footer {
         padding: 1rem;
     }
 }
+/* Añadir estas reglas al final del archivo CSS */
+
+/* Transición para precios */
+.price {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.monthly-price, .annual-price {
+    position: relative;
+    display: block;
+}
+
+/* Asegurar que los precios tengan el mismo espacio */
+.plan h3 + .price {
+    margin: 1rem 0;
+    min-height: 60px; /* Espacio reservado para evitar saltos */
+}
