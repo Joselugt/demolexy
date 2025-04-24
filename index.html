@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Aliado Legal - Planes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* CSS será insertado aquí */
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-container">
-        <div class="animated-background"></div>
-        <img src="1DA.jpg" class="background-image" alt="Fondo">
+    <div class="fixed-background">
+        <div class="background-overlay"></div>
     </div>
 
     <div class="light-effects-container">
@@ -51,211 +48,22 @@
             </div>
             
             <div class="pricing-plans monthly-plans">
-                <div class="plan-option">
-                    <input type="radio" id="basic-plan-monthly" name="plan" value="basic-monthly" class="plan-radio">
-                    <label for="basic-plan-monthly" class="plan glass glass-light">
-                        <h3>Plan Básico</h3>
-                        <p class="price">$9.99<span>/mes</span></p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Acceso a funciones esenciales</li>
-                                <li><i class="fas fa-check"></i> Soporte básico</li>
-                                <li><i class="fas fa-check"></i> 5 consultas/mes</li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="plan-option">
-                    <input type="radio" id="standard-plan-monthly" name="plan" value="standard-monthly" class="plan-radio">
-                    <label for="standard-plan-monthly" class="plan glass">
-                        <h3>Plan Estándar</h3>
-                        <p class="price">$19.99<span>/mes</span></p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Funciones avanzadas</li>
-                                <li><i class="fas fa-check"></i> Soporte prioritario</li>
-                                <li><i class="fas fa-check"></i> 20 consultas/mes</li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="plan-option">
-                    <input type="radio" id="premium-plan-monthly" name="plan" value="premium-monthly" class="plan-radio">
-                    <label for="premium-plan-monthly" class="plan glass glass-light">
-                        <h3>Plan Premium</h3>
-                        <p class="price">$29.99<span>/mes</span></p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Acceso completo</li>
-                                <li><i class="fas fa-check"></i> Soporte 24/7</li>
-                                <li><i class="fas fa-check"></i> Consultas ilimitadas</li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
+                <!-- Planes mensuales aquí -->
             </div>
             
             <div class="pricing-plans annual-plans" style="display: none;">
-                <div class="plan-option">
-                    <input type="radio" id="basic-plan-annual" name="plan" value="basic-annual" class="plan-radio">
-                    <label for="basic-plan-annual" class="plan glass glass-light">
-                        <h3>Plan Básico</h3>
-                        <p class="price">$95.90<span>/año</span></p>
-                        <p class="savings">(Ahorras $24)</p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Acceso a funciones esenciales</li>
-                                <li><i class="fas fa-check"></i> Soporte básico</li>
-                                <li><i class="fas fa-check"></i> 5 consultas/mes</li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="plan-option">
-                    <input type="radio" id="standard-plan-annual" name="plan" value="standard-annual" class="plan-radio">
-                    <label for="standard-plan-annual" class="plan glass">
-                        <h3>Plan Estándar</h3>
-                        <p class="price">$191.90<span>/año</span></p>
-                        <p class="savings">(Ahorras $48)</p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Funciones avanzadas</li>
-                                <li><i class="fas fa-check"></i> Soporte prioritario</li>
-                                <li><i class="fas fa-check"></i> 20 consultas/mes</li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="plan-option">
-                    <input type="radio" id="premium-plan-annual" name="plan" value="premium-annual" class="plan-radio">
-                    <label for="premium-plan-annual" class="plan glass glass-light">
-                        <h3>Plan Premium</h3>
-                        <p class="price">$287.90<span>/año</span></p>
-                        <p class="savings">(Ahorras $72)</p>
-                        <div class="plan-details">
-                            <ul class="features">
-                                <li><i class="fas fa-check"></i> Acceso completo</li>
-                                <li><i class="fas fa-check"></i> Soporte 24/7</li>
-                                <li><i class="fas fa-check"></i> Consultas ilimitadas</li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
+                <!-- Planes anuales aquí -->
             </div>
 
             <button id="select-plan-btn" class="btn">Seleccionar Plan</button>
 
-            <!-- Formulario de pago (oculto inicialmente) -->
             <div id="payment-form" class="payment-form glass" style="display: none;">
-                <h2><i class="fas fa-credit-card"></i> Información de Pago</h2>
-                <form id="checkout-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name"><i class="fas fa-user"></i> Nombre</label>
-                            <input type="text" id="first-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name"><i class="fas fa-user"></i> Apellido</label>
-                            <input type="text" id="last-name" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone"><i class="fas fa-phone"></i> Teléfono</label>
-                        <div class="phone-input-container">
-                            <select id="country-code" class="country-code">
-                                <option value="+502" selected>+502 (GT)</option>
-                                <option value="+52">+52 (MX)</option>
-                                <option value="+1">+1 (US)</option>
-                                <option value="+34">+34 (ES)</option>
-                                <option value="+54">+54 (AR)</option>
-                                <option value="+57">+57 (CO)</option>
-                            </select>
-                            <input type="tel" id="phone" pattern="[0-9]*" inputmode="numeric" required placeholder="1234 5678">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="country"><i class="fas fa-globe"></i> País</label>
-                        <select id="country" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="GT">Guatemala</option>
-                            <option value="MX">México</option>
-                            <option value="US">Estados Unidos</option>
-                            <option value="ES">España</option>
-                            <option value="AR">Argentina</option>
-                            <option value="CO">Colombia</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="card-name"><i class="fas fa-credit-card"></i> Nombre en la Tarjeta</label>
-                        <input type="text" id="card-name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="card-number"><i class="fas fa-credit-card"></i> Número de Tarjeta</label>
-                        <div class="card-input-container">
-                            <input type="text" id="card-number" pattern="[0-9]{13,16}" required placeholder="1234 5678 9012 3456">
-                            <div class="card-icons">
-                                <i class="fab fa-cc-visa card-icon" id="visa-icon" style="display: none;"></i>
-                                <i class="fab fa-cc-mastercard card-icon" id="mastercard-icon" style="display: none;"></i>
-                                <i class="fab fa-cc-amex card-icon" id="amex-icon" style="display: none;"></i>
-                                <i class="fas fa-credit-card card-icon" id="generic-card" style="display: inline-block;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="expiry"><i class="fas fa-calendar-alt"></i> Fecha de Vencimiento</label>
-                            <input type="text" id="expiry" placeholder="MM/AA" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cvv"><i class="fas fa-lock"></i> Código de Seguridad</label>
-                            <input type="text" id="cvv" pattern="[0-9]{3,4}" required placeholder="123">
-                        </div>
-                    </div>
-
-                    <!-- CAPTCHA -->
-                    <div class="captcha-container">
-                        <div class="fake-captcha">
-                            <div class="captcha-image">
-                                <div class="captcha-text">CAPTCHA</div>
-                                <div class="captcha-checkbox">
-                                    <input type="checkbox" id="captcha-check" style="display: none;">
-                                    <div class="checkbox"></div>
-                                    <span>No soy un robot</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn confirm-btn">
-                        <span class="btn-reflect"></span>
-                        <i class="fas fa-shopping-cart"></i> Confirmar Compra
-                    </button>
-                </form>
+                <!-- Formulario de pago aquí -->
             </div>
         </div>
 
         <div class="main-text glass glass-dark" id="login-section" style="display: none;">
-            <h1>Iniciar Sesión</h1>
-            <form id="login-form" class="login-form">
-                <input type="email" placeholder="Correo Electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit" class="btn">Ingresar</button>
-            </form>
-            <p style="margin-top: 1rem;">¿No tienes una cuenta? <a href="#" id="register-link" style="color: lightblue;">Regístrate aquí</a></p>
+            <!-- Formulario de login aquí -->
         </div>
     </main>
 
@@ -289,8 +97,6 @@
         </div>
     </footer>
 
-    <script>
-        // JavaScript será insertado aquí
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
